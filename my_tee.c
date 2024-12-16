@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
 
 		// Per a cada iteració, enviem un byte de tornada a l'entrada estàndard
 		// Si rebem un error (-1) d'escriptura, notifiquem a l'usuari
-        	if (write(STDIN_FILENO, &buffer, 1) == -1) {
+        	if (write(STDOUT_FILENO, &buffer, 1) == -1) {
             		perror("Error escrivint a la sortida estàndard");
 
 			// Tanquem l'arxiu i finaltizem el programa

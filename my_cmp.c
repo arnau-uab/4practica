@@ -38,13 +38,17 @@ int main(int argc, char *argv[]) {
 	// Iniciem les variables enteres posicio i linia i els assignem el valor 1
 	int posicio = 1, linia = 1;
 
+	// Iniciem dues variables string com els noms dels arxius amb els que es treballen
+	char* arxiu1 = argv[1];
+	char* arxiu2 = argv[2];
+
 	// Establim un bucle while mentre cap de les lectures ha finalitzat ni s'ha produït un error (0 i -1 respectivament)
 	// El programa llegeix byte a byte i s'emmagatzemen els caràcters en les corresponents variables: byte1 i byte2
     	while ((lectura1 = read(fd1, &byte1, 1)) > 0 && (lectura2 = read(fd2, &byte2, 1)) > 0) {
 
 		// Per a cada iteració, si els byte dels arxius és diferent, notifiquem a l'usuari
 		if (byte1 != byte2) {
-        		printf("Els arxius són diferents al byte %d, línia %d\n", posicio, linia);
+        		printf("%s %s differ: byte %d, line %d\n", arxiu1, arxiu2, posicio, linia);
             		close(fd1);
             		close(fd2);
 
